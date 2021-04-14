@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <script src="//unpkg.com/d3"></script>
+</head>
+<body>
+<script>
+    const svg = d3
+        .select('body')
+        .append('svg')
+        .attr('width', 500)
+        .attr('height', 300);
+
+    const lollipop = svg.append('g').attr('transform', 'translate(100, 100)');
+
+    lollipop.append('line')
+        .attr('x2', 200)
+        .style('stroke', 'black');
+
+    lollipop.append('circle')
+        .attr('cx', 200)
+        .attr('r', 3)
+
+    lollipop.append('text')
+        .attr('y', -10)
+        .text('Text')
+</script>
+</body>
+</html>
