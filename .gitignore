@@ -1,4 +1,5 @@
 .idea
+.DS_Store
 **/vcs.xml
 **/workspace.xml
 **/node_modules
