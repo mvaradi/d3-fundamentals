@@ -4,6 +4,8 @@
   "description": "Loading data with D3",
   "license": "Apache 2.0",
   "dependencies": {
-    "d3-fetch": "^2.0.0"
+    "d3-array": "^2.0.3",
+    "d3-fetch": "^1.1.2",
+    "d3-time-format": "^2.1.3"
   }
 }

@@ -1,4 +1,39 @@
+// Data preparation
+function filterData(data){
+    return data.filter(d => {
+        return (
+            d.release_year > 1999 &&
+            d.release_year < 2010 &&
+            d.revenue > 0 &&
+            d.budget > 0 &&
+            d.genre &&
+            d.title
+        );
+    });
+}
+
+function prepareBarChartData(data){
+    // d3.rollup() has 3 arguments: data, reducer and key to group by
+    const dataMap = d3.rollup(
+        data,
+        v => d3.sum(v, leaf => leaf.revenue),
+        d => d.genre
+    );
+
+    const dataArray = Array.from(dataMap, d => ({ genre: d[0], revenue: d[1] }));
+
+    return dataArray;
+}
+
 // Main function
+function ready(movies){
+    const moviesClean = filterData(movies);
+    // console.log(moviesClean);
+    const barChartData = prepareBarChartData(moviesClean).sort((a, b) => {
+        return d3.descending(a.revenue - b.revenue);
+    });
+    console.log(barChartData);
+}
 
 // Data utilities
 const parseNA = string => (string === 'NA' ? undefined : string);
